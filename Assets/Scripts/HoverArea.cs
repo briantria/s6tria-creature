@@ -1,5 +1,6 @@
 ﻿/*
  * Brian Tria
+ * July 15, 2015
  * 
  * HoverArea enables the hover effect for mech units only
  * 
