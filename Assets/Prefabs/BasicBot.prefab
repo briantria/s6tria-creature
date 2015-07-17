@@ -44,25 +44,10 @@ GameObject:
   - 4: {fileID: 461352}
   - 54: {fileID: 5409692}
   - 65: {fileID: 6567226}
+  - 114: {fileID: 11442402}
   m_Layer: 0
   m_Name: BasicBot
   m_TagString: Mech
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &188606
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 446050}
-  - 114: {fileID: 11400306}
-  m_Layer: 0
-  m_Name: ChipManager
-  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,18 +106,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 428666}
   m_RootOrder: 0
---- !u!4 &446050
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 188606}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 461352}
-  m_RootOrder: 2
 --- !u!4 &461352
 Transform:
   m_ObjectHideFlags: 1
@@ -145,7 +118,6 @@ Transform:
   m_Children:
   - {fileID: 424100}
   - {fileID: 428666}
-  - {fileID: 446050}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!23 &2302622
@@ -268,18 +240,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.70000005, y: 1.29999995, z: 2.5}
   m_Center: {x: 0, y: .100000001, z: 0}
---- !u!114 &11400306
+--- !u!114 &11442402
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 188606}
+  m_GameObject: {fileID: 141054}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: deb1d82e9b28a4045b90e6a142f8a814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_objMech: {fileID: 141054}
   m_objBody: {fileID: 104948}
   m_objHatch: {fileID: 194130}
 --- !u!1001 &100100000
