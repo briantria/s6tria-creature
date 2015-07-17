@@ -14,7 +14,7 @@ public class MoveComponent : MonoBehaviour
 	public Transform MovableObject { get; set; }
 	public Rigidbody MovableRigidBody { get; set; }
 
-	void Awake ()
+	protected void Awake ()
 	{
 		LinearSpeed = 0.0f;
 		RotationSpeed = 0.0f;

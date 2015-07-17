@@ -19,7 +19,7 @@ public class ChipManager : MonoBehaviour
 
 	// create new chip
 	// addcomponent(chip)
-	void Start ()
+	protected void Start ()
 	{
 		m_objMech = this.gameObject;
 
@@ -29,7 +29,7 @@ public class ChipManager : MonoBehaviour
 		m_moveComponent.MovableRigidBody = m_objMech.GetComponent<Rigidbody>();
 	}
 
-	void LateUpdate ()
+	protected void LateUpdate ()
 	{
 		//moveComponent.MovableRigidBody = m_objMech.GetComponent<Rigidbody>();
 		m_moveComponent.MoveRigidBody(Vector3.forward * (-1));

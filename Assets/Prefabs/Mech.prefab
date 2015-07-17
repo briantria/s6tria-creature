@@ -46,7 +46,7 @@ GameObject:
   - 65: {fileID: 6567226}
   - 114: {fileID: 11442402}
   m_Layer: 0
-  m_Name: BasicBot
+  m_Name: Mech
   m_TagString: Mech
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

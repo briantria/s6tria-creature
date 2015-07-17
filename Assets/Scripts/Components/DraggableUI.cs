@@ -10,16 +10,56 @@
 using UnityEngine; 
 using UnityEngine.EventSystems;
 
-[RequireComponent (typeof (EventTrigger))]
-
-public class DraggableUI : MonoBehaviour 
+public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-	public void OnDrag ()
+	public delegate void DraggableEventTrigger (GameObject p_gameObject);
+	public static event DraggableEventTrigger onBeginDrag;
+	public static event DraggableEventTrigger onEndDrag;
+	public static event DraggableEventTrigger onDrag;
+
+	#region IBeginDragHandler implementation
+
+	public void OnBeginDrag (PointerEventData eventData)
 	{
+		//throw new System.NotImplementedException ();
+		if(onBeginDrag != null)
+		{
+			onBeginDrag(this.gameObject);
+		}
+	}
+
+	#endregion
+
+	#region IDragHandler implementation
+
+	public void OnDrag (PointerEventData eventData)
+	{
+		//throw new System.NotImplementedException ();
+		if(onDrag != null)
+		{
+			onDrag(this.gameObject);
+		}
+		
 		Vector3 cursorPosition = Input.mousePosition;
 		cursorPosition = Camera.main.ScreenToWorldPoint(cursorPosition);
 		cursorPosition.z = 0;
-
+		
 		transform.position = cursorPosition;
 	}
+
+	#endregion
+
+	#region IEndDragHandler implementation
+
+	public void OnEndDrag (PointerEventData eventData)
+	{
+		//throw new System.NotImplementedException ();
+		if(onEndDrag != null)
+		{
+			onEndDrag(this.gameObject);
+		}
+	}
+
+	#endregion
+
 }
