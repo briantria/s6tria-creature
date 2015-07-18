@@ -24,9 +24,9 @@ public class ChipManager : MonoBehaviour
 		m_objMech = this.gameObject;
 
 		m_moveComponent = gameObject.AddComponent<MoveComponent>();
-		m_moveComponent.LinearSpeed = 3.0f;
-		m_moveComponent.MovableObject = m_objBody.transform;
-		m_moveComponent.MovableRigidBody = m_objMech.GetComponent<Rigidbody>();
+		m_moveComponent.linearSpeed = 3.0f;
+		m_moveComponent.movableObject = m_objBody.transform;
+		m_moveComponent.movableRigidBody = m_objMech.GetComponent<Rigidbody>();
 	}
 
 	protected void LateUpdate ()

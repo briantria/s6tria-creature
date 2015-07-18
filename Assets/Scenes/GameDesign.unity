@@ -279,7 +279,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Available Chips
+  m_Text: Chip Inventory
 --- !u!222 &453381859
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -462,8 +462,9 @@ GameObject:
   - 223: {fileID: 772210659}
   - 114: {fileID: 772210658}
   - 114: {fileID: 772210657}
+  - 114: {fileID: 772210661}
   m_Layer: 5
-  m_Name: MainUI
+  m_Name: MainUICanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -542,6 +543,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &772210661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 772210656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c28c09b970b7a3a4f85a3bad9cb47937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &782343245
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,6 +563,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 782343246}
   - 114: {fileID: 782343247}
+  - 114: {fileID: 782343248}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -577,7 +590,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: 1}
   m_AnchorMax: {x: .5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: 1}
 --- !u!114 &782343247
 MonoBehaviour:
@@ -599,6 +612,19 @@ MonoBehaviour:
   m_Spacing: 20
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
+--- !u!114 &782343248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 782343245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1741964061, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 1
+  m_VerticalFit: 1
 --- !u!1001 &895069824
 Prefab:
   m_ObjectHideFlags: 0
@@ -640,7 +666,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22432446, guid: 83c428fb53bb16849af9e3315610bfa7, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 50
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 22432446, guid: 83c428fb53bb16849af9e3315610bfa7, type: 2}
       propertyPath: m_AnchoredPosition.y
@@ -684,15 +710,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11465088, guid: 83c428fb53bb16849af9e3315610bfa7, type: 2}
       propertyPath: m_Color.r
-      value: .558823526
+      value: .530704856
       objectReference: {fileID: 0}
     - target: {fileID: 11465088, guid: 83c428fb53bb16849af9e3315610bfa7, type: 2}
       propertyPath: m_Color.g
-      value: .439662635
+      value: .75
       objectReference: {fileID: 0}
     - target: {fileID: 11465088, guid: 83c428fb53bb16849af9e3315610bfa7, type: 2}
       propertyPath: m_Color.b
-      value: .439662635
+      value: .237132356
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 83c428fb53bb16849af9e3315610bfa7, type: 2}
@@ -761,7 +787,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Attached Chips
+  m_Text: Mech Setup
 --- !u!222 &1269571669
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -778,8 +804,10 @@ GameObject:
   - 224: {fileID: 1417604709}
   - 222: {fileID: 1417604711}
   - 114: {fileID: 1417604710}
+  - 114: {fileID: 1417604713}
+  - 114: {fileID: 1417604712}
   m_Layer: 5
-  m_Name: ScrollContainer
+  m_Name: AttachedChips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -829,6 +857,39 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1417604708}
+--- !u!114 &1417604712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1417604708}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1741964061, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 1
+  m_VerticalFit: 1
+--- !u!114 &1417604713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1417604708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -405508275, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 10
+    m_Right: 10
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 20
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
 --- !u!224 &1480773662
 RectTransform:
   m_PrefabParentObject: {fileID: 22432446, guid: 83c428fb53bb16849af9e3315610bfa7,
@@ -948,7 +1009,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22432446, guid: 83c428fb53bb16849af9e3315610bfa7, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 50
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 22432446, guid: 83c428fb53bb16849af9e3315610bfa7, type: 2}
       propertyPath: m_AnchoredPosition.y
@@ -992,15 +1053,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11465088, guid: 83c428fb53bb16849af9e3315610bfa7, type: 2}
       propertyPath: m_Color.r
-      value: .558823526
+      value: .86010915
       objectReference: {fileID: 0}
     - target: {fileID: 11465088, guid: 83c428fb53bb16849af9e3315610bfa7, type: 2}
       propertyPath: m_Color.g
-      value: .439662635
+      value: .353265584
       objectReference: {fileID: 0}
     - target: {fileID: 11465088, guid: 83c428fb53bb16849af9e3315610bfa7, type: 2}
       propertyPath: m_Color.b
-      value: .439662635
+      value: .889705896
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 83c428fb53bb16849af9e3315610bfa7, type: 2}
@@ -1020,8 +1081,9 @@ GameObject:
   - 224: {fileID: 1618369468}
   - 222: {fileID: 1618369470}
   - 114: {fileID: 1618369469}
+  - 114: {fileID: 1618369471}
   m_Layer: 5
-  m_Name: AvailableChips
+  m_Name: ChipInventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1073,6 +1135,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1618369467}
+--- !u!114 &1618369471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1618369467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bc7371d232d67045be7fbeaecc0873a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_tContentContainer: {fileID: 782343246}
 --- !u!1001 &1755092083
 Prefab:
   m_ObjectHideFlags: 0
@@ -1160,7 +1234,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22432446, guid: 83c428fb53bb16849af9e3315610bfa7, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 50
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 22432446, guid: 83c428fb53bb16849af9e3315610bfa7, type: 2}
       propertyPath: m_AnchoredPosition.y
@@ -1271,8 +1345,9 @@ GameObject:
   - 224: {fileID: 1954914550}
   - 222: {fileID: 1954914552}
   - 114: {fileID: 1954914551}
+  - 114: {fileID: 1954914553}
   m_Layer: 5
-  m_Name: AttachedChips
+  m_Name: MechSetup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1324,6 +1399,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1954914549}
+--- !u!114 &1954914553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1954914549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5567a02854a0ebf47a3847a71ecc0f9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_tinstalledChipsContainer: {fileID: 1417604709}
 --- !u!1001 &2114247677
 Prefab:
   m_ObjectHideFlags: 0
@@ -1365,7 +1452,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22432446, guid: 83c428fb53bb16849af9e3315610bfa7, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 50
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 22432446, guid: 83c428fb53bb16849af9e3315610bfa7, type: 2}
       propertyPath: m_AnchoredPosition.y
