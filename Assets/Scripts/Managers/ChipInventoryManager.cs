@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class ChipInventoryManager : MonoBehaviour 
 {
 	private static ChipInventoryManager m_instance = null;
-	public static ChipInventoryManager instance {get{return m_instance;}}
+	public  static ChipInventoryManager instance {get{return m_instance;}}
 
 	[SerializeField] private Transform m_tContentContainer;
 	public Transform contentContainer {get{return m_tContentContainer;}}
@@ -62,9 +62,7 @@ public class ChipInventoryManager : MonoBehaviour
 			objChip.transform.localScale = Vector3.one;
 
 			chipDataDisplay = objChip.GetComponent<ChipDataDisplay>();
-			chipDataDisplay.id = chipData.id;
-			chipDataDisplay.label = chipData.label;
-			chipDataDisplay.description = chipData.description;
+			chipDataDisplay.chipData = chipData;
 		}
 	}
 }

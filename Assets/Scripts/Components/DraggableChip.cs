@@ -20,6 +20,9 @@ public class DraggableChip : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 	private CanvasGroup m_canvasGroup;
 	private ChipDataDisplay m_chipDataDisplay;
 
+	public delegate void DraggableChipEventTrigger (DraggableChip p_selectedChip);
+	public static event DraggableChipEventTrigger onEndDrag;
+
 	// TODO: database of chips' full list. include constant order index;
 
 	protected void Awake ()
@@ -46,14 +49,19 @@ public class DraggableChip : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
 	public void OnEndDrag (PointerEventData eventData)
 	{
-		selectedChip = null;
-		m_canvasGroup.blocksRaycasts = true;
-
 		if(m_transform.parent.gameObject.GetInstanceID() == MainUIManager.instance.gameObject.GetInstanceID())
 		{
+			if(onEndDrag != null)
+			{
+				onEndDrag(selectedChip);
+			}
+
 			m_transform.SetParent(ChipInventoryManager.instance.contentContainer);
 			// TODO: should update all sibling index to keep order
 			m_transform.SetSiblingIndex(chipDataDisplay.id);
 		}
+
+		selectedChip = null;
+		m_canvasGroup.blocksRaycasts = true;
 	}
 }
