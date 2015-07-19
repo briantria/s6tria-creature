@@ -13,22 +13,20 @@ using UnityEngine.EventSystems;
 public class DraggableChip : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
 	public static DraggableChip selectedChip { set; get; }
-	public int fullListOrderIndex {get{return m_iFullListOrderIndex;}}
+	public ChipDataDisplay chipDataDisplay {get{return m_chipDataDisplay;}}
 
 	private GameObject m_objDraggableChip;
 	private Transform m_transform;
-	private Transform m_tInventory;
 	private CanvasGroup m_canvasGroup;
-	private int m_iFullListOrderIndex;
+	private ChipDataDisplay m_chipDataDisplay;
 
 	// TODO: database of chips' full list. include constant order index;
 
 	protected void Awake ()
 	{
 		m_transform = this.transform;
-		m_tInventory = m_transform.parent;
-		m_iFullListOrderIndex = m_transform.GetSiblingIndex();
 		m_canvasGroup = this.GetComponent<CanvasGroup>();
+		m_chipDataDisplay = this.GetComponent<ChipDataDisplay>();
 	}
 
 	public void OnBeginDrag (PointerEventData eventData)
@@ -53,8 +51,9 @@ public class DraggableChip : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
 		if(m_transform.parent.gameObject.GetInstanceID() == MainUIManager.instance.gameObject.GetInstanceID())
 		{
-			m_transform.SetParent(m_tInventory);
-			m_transform.SetSiblingIndex(fullListOrderIndex);
+			m_transform.SetParent(ChipInventoryManager.instance.contentContainer);
+			// TODO: should update all sibling index to keep order
+			m_transform.SetSiblingIndex(chipDataDisplay.id);
 		}
 	}
 }

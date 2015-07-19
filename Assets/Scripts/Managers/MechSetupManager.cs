@@ -26,7 +26,8 @@ public class MechSetupManager : MonoBehaviour, IDropHandler
 		{
 			DraggableChip selectedChip = DraggableChip.selectedChip;
 			selectedChip.transform.SetParent(m_tinstalledChipsContainer);
-			selectedChip.transform.SetSiblingIndex(selectedChip.fullListOrderIndex);
+			// TODO: should update all sibling index to keep order
+			selectedChip.transform.SetSiblingIndex(selectedChip.chipDataDisplay.id);
 		}
 	}
 }

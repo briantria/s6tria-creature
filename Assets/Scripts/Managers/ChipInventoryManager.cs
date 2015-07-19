@@ -7,7 +7,7 @@ public class ChipInventoryManager : MonoBehaviour
 	public static ChipInventoryManager instance {get{return m_instance;}}
 
 	[SerializeField] private Transform m_tContentContainer;
-	//public Transform contentContainer {get{return m_tContentContainer;}}
+	public Transform contentContainer {get{return m_tContentContainer;}}
 
 	private const string CHIP_PREFAB_PATH = "Prefabs/Chip";
 	private List<ChipData> m_listChipData = new List<ChipData>();
@@ -34,12 +34,12 @@ public class ChipInventoryManager : MonoBehaviour
 		turn.description = "Simple Turn";
 
 		ChipData fire = new ChipData();
-		fire.id = 1;
+		fire.id = 2;
 		fire.label = "Simple Fire";
 		fire.description = "Simple Fire";
 
 		ChipData scan = new ChipData();
-		scan.id = 1;
+		scan.id = 3;
 		scan.label = "Simple Scan";
 		scan.description = "Simple Scan";
 		
