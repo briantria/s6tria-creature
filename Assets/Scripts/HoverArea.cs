@@ -13,7 +13,7 @@ public class HoverArea : MonoBehaviour
 {
 	[SerializeField] private float p_fThrust = 15.0f;
 
-	void OnTriggerStay (Collider p_collider)
+	protected void OnTriggerStay (Collider p_collider)
 	{
 		if(p_collider.CompareTag("Mech"))
 		{

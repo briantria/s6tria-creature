@@ -9,32 +9,32 @@ using System.Collections;
 
 public class MoveComponent : MonoBehaviour 
 {
-	public float LinearSpeed { get; set; }
-	public float RotationSpeed { get; set; }
-	public Transform MovableObject { get; set; }
-	public Rigidbody MovableRigidBody { get; set; }
+	public float linearSpeed { get; set; }
+	public float rotationSpeed { get; set; }
+	public Transform movableObject { get; set; }
+	public Rigidbody movableRigidBody { get; set; }
 
-	void Awake ()
+	protected void Awake ()
 	{
-		LinearSpeed = 0.0f;
-		RotationSpeed = 0.0f;
-		MovableObject = null;
-		MovableRigidBody = null;
+		linearSpeed = 0.0f;
+		rotationSpeed = 0.0f;
+		movableObject = null;
+		movableRigidBody = null;
 	}
 
 	public void Move (Vector3 p_v3Direction)
 	{
-		if(MovableObject)
+		if(movableObject)
 		{
-			MovableObject.Translate(p_v3Direction * LinearSpeed);
+			movableObject.Translate(p_v3Direction * linearSpeed);
 		}
 	}
 
 	public void MoveRigidBody (Vector3 p_v3Direction)
 	{
-		if(MovableRigidBody)
+		if(movableRigidBody)
 		{
-			MovableRigidBody.AddForce(p_v3Direction * LinearSpeed, ForceMode.Acceleration);
+			movableRigidBody.AddForce(p_v3Direction * linearSpeed, ForceMode.Acceleration);
 		}
 	}
 
