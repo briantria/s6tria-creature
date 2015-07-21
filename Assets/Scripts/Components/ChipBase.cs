@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class ChipBase : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
+public class ChipBase <T> : MonoBehaviour 
+{
+	public virtual void Create (GameObject p_objMech)
+	{
+		T chipComponent = p_objMech.AddComponent<T>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	public virtual void ExecuteCommand ()
+	{
+
 	}
 }

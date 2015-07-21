@@ -7,7 +7,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class MoveComponent : MonoBehaviour 
+public class MechMoveForward : ChipBase <MechMoveForward>, IMoveHandler, IRotateHandler
 {
 	public float linearSpeed { get; set; }
 	public float rotationSpeed { get; set; }
@@ -22,24 +22,24 @@ public class MoveComponent : MonoBehaviour
 		movableRigidBody = null;
 	}
 
-	public void Move (Vector3 p_v3Direction)
+	public override void Create (GameObject p_objMech)
 	{
-		if(movableObject)
-		{
-			movableObject.Translate(p_v3Direction * linearSpeed);
-		}
+		base.Create(p_objMech);
+		linearSpeed = 3.0f;
+		movableObject = m_objBody.transform;
+		movableRigidBody = m_objMech.GetComponent<Rigidbody>();
 	}
 
-	public void MoveRigidBody (Vector3 p_v3Direction)
+	public override void ExecuteCommand ()
+	{
+
+	}
+	
+	public void MoveObject (Vector3 p_v3Direction)
 	{
 		if(movableRigidBody)
 		{
 			movableRigidBody.AddForce(p_v3Direction * linearSpeed, ForceMode.Acceleration);
 		}
-	}
-
-	public void Rotate ()
-	{
-
 	}
 }

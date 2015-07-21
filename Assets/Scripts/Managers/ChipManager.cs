@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Brian Tria
  * July 15, 2015
  * 
@@ -18,7 +18,7 @@ public class ChipManager : MonoBehaviour
 	[SerializeField] private GameObject m_objHatch;
 
 	private GameObject m_objMech;
-	private MoveComponent m_moveComponent;
+	private MechMoveForward m_moveComponent;
 
 	protected void Awake ()
 	{
