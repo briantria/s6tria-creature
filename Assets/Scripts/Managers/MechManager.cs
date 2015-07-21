@@ -16,6 +16,7 @@ public class MechManager : MonoBehaviour
 		foreach(KeyValuePair<int, ChipData> chipdata in p_dictChipData)
 		{
 			Debug.Log(chipdata.Value.label);
+			ChipManager.instance.Install(chipdata.Value.type);
 		}
 	}
 }

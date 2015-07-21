@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using System;
 
 public class ChipBase <T> : MonoBehaviour 
 {
-	public virtual void Create (GameObject p_objMech)
+	public virtual void AttachTo (GameObject p_objMech)
 	{
-		T chipComponent = p_objMech.AddComponent<T>();
+		p_objMech.AddComponent(typeof(T));
 	}
 
 	public virtual void ExecuteCommand ()
