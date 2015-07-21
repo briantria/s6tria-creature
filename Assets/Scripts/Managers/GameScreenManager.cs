@@ -8,5 +8,6 @@ public class GameScreenManager : MonoBehaviour
 	protected void Awake ()
 	{
 		if(m_instance == null){m_instance = this;}
+		this.gameObject.SetActive(false);
 	}
 }

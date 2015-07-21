@@ -31,8 +31,20 @@ public class ChipManager : MonoBehaviour
 		//m_moveComponent.MoveRigidBody(Vector3.forward * (-1));
 	}
 
-	public void Install (string p_chipTypeName)
+	public void InstallChip (string p_chipTypeName)
 	{
 		this.gameObject.AddComponent(Type.GetType(p_chipTypeName));
+	}
+
+	public void UninstallAllChips ()
+	{
+		ChipBase[] listChipComponents = this.gameObject.GetComponents<ChipBase>() as ChipBase[];
+
+		for(int idx = listChipComponents.Length-1; idx >= 0; --idx)
+		{
+			Destroy(listChipComponents[idx]);
+		}
+
+		listChipComponents = null;
 	}
 }
