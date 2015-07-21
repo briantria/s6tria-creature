@@ -1,15 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class MechHatchManager : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+public class MechHatchManager : MonoBehaviour 
+{
+	[SerializeField] private Transform m_bulletSpawnPoint;
+	public Transform bulletSpawnPoint {get{return m_bulletSpawnPoint;}}
 }
