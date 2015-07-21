@@ -15,6 +15,8 @@ public class ChipManager : MonoBehaviour
 	private static ChipManager m_instance = null;
 	public  static ChipManager instance {get{return m_instance;}}
 
+	public GameObject mechHatch { get{ return m_objHatch; }}
+
 	[SerializeField] private GameObject m_objBody;
 	[SerializeField] private GameObject m_objHatch;
 
@@ -36,16 +38,6 @@ public class ChipManager : MonoBehaviour
 	{
 		if(m_instance == null){m_instance = this;}
 	}
-
-//	protected void LateUpdate ()
-//	{
-//		if(m_listChipComponents == null || m_listChipComponents.Count <= 0)
-//		{
-//			return;
-//		}
-//
-//
-//	}
 
 	private void GameStart ()
 	{

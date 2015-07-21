@@ -12,9 +12,8 @@ public class MechMoveForward : ChipBase, IMoveHandler
 	public float linearSpeed { get; set; }
 	public Rigidbody movableRigidBody { get; set; }
 
-	protected override void Awake ()
+	protected void Awake ()
 	{
-		base.Awake();
 		linearSpeed = 3.0f;
 		movableRigidBody = this.gameObject.GetComponent<Rigidbody>();
 	}

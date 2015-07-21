@@ -5,9 +5,8 @@ public class MechTurn : ChipBase, IRotateHandler
 {
 	public float angularSpeed { set; get; }
 
-	protected override void Awake ()
+	protected void Awake ()
 	{
-		base.Awake();
 		angularSpeed = 1.0f;
 	}
 
