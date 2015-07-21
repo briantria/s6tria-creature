@@ -20,15 +20,36 @@ public class ChipManager : MonoBehaviour
 
 	private GameObject m_objMech;
 	private MechMoveForward m_moveComponent;
+	private List<ChipBase> m_listChipComponents = new List<ChipBase>();
+
+	protected void OnEnable ()
+	{
+		GameButton.onClickPlay += GameStart;
+	}
+
+	protected void OnDisable ()
+	{
+		GameButton.onClickPlay -= GameStart;
+	}
 
 	protected void Awake ()
 	{
 		if(m_instance == null){m_instance = this;}
 	}
 
-	protected void LateUpdate ()
+//	protected void LateUpdate ()
+//	{
+//		if(m_listChipComponents == null || m_listChipComponents.Count <= 0)
+//		{
+//			return;
+//		}
+//
+//
+//	}
+
+	private void GameStart ()
 	{
-		//m_moveComponent.MoveRigidBody(Vector3.forward * (-1));
+		this.gameObject.GetComponents<ChipBase>(m_listChipComponents);
 	}
 
 	public void InstallChip (string p_chipTypeName)

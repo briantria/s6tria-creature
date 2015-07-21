@@ -23,8 +23,13 @@ public class MechManager : MonoBehaviour
 
 	private void OnClickBack ()
 	{
-		Debug.Log("CLICK BACK!");
-		ChipManager.instance.UninstallAllChips();
+		ChipManager chipManager = ChipManager.instance;
+		Transform chipMngrTransform = chipManager.transform;
+
+		chipMngrTransform.position = new Vector3(0,1,0);
+		chipMngrTransform.localScale = Vector3.one;
+		chipMngrTransform.rotation = Quaternion.identity;
+		chipManager.UninstallAllChips();
 	}
 
 	public void MechSetup (Dictionary<int, ChipData> p_dictChipData)
