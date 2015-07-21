@@ -25,21 +25,25 @@ public class ChipInventoryManager : MonoBehaviour
 
 		ChipData move = new ChipData();
 		move.id = 0;
+		move.type = "MechMoveForward";
 		move.label = "Simple Move";
 		move.description = "Simple Move";
 
 		ChipData turn = new ChipData();
 		turn.id = 1;
+		turn.type = "MechTurn";
 		turn.label = "Simple Turn";
 		turn.description = "Simple Turn";
 
 		ChipData fire = new ChipData();
 		fire.id = 2;
+		fire.type = "MechShootBasic";
 		fire.label = "Simple Fire";
 		fire.description = "Simple Fire";
 
 		ChipData scan = new ChipData();
 		scan.id = 3;
+		scan.type = "MechScanBasic";
 		scan.label = "Simple Scan";
 		scan.description = "Simple Scan";
 		

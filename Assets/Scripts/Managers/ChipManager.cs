@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Brian Tria
  * July 15, 2015
  * 
@@ -7,6 +7,7 @@
  */
 
 using UnityEngine;
+using System;
 using System.Collections.Generic;
 
 public class ChipManager : MonoBehaviour 
@@ -18,27 +19,20 @@ public class ChipManager : MonoBehaviour
 	[SerializeField] private GameObject m_objHatch;
 
 	private GameObject m_objMech;
-	private MoveComponent m_moveComponent;
+	private MechMoveForward m_moveComponent;
 
 	protected void Awake ()
 	{
 		if(m_instance == null){m_instance = this;}
 	}
 
-	// create new chip
-	// addcomponent(chip)
-	protected void Start ()
-	{
-		m_objMech = this.gameObject;
-
-//		m_moveComponent = gameObject.AddComponent<MoveComponent>();
-//		m_moveComponent.linearSpeed = 3.0f;
-//		m_moveComponent.movableObject = m_objBody.transform;
-//		m_moveComponent.movableRigidBody = m_objMech.GetComponent<Rigidbody>();
-	}
-
 	protected void LateUpdate ()
 	{
 		//m_moveComponent.MoveRigidBody(Vector3.forward * (-1));
+	}
+
+	public void Install (string p_chipTypeName)
+	{
+		this.gameObject.AddComponent(Type.GetType(p_chipTypeName));
 	}
 }

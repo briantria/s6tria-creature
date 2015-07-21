@@ -19,13 +19,13 @@ public class MechSetupManager : MonoBehaviour, IDropHandler
 	protected void OnEnable ()
 	{
 		DraggableChip.onEndDrag += DraggableChipOnEndDrag;
-		PlayButton.onClick += OnClickPlay;
+		GameButton.onClickPlay += OnClickPlay;
 	}
 
 	protected void OnDisable ()
 	{
 		DraggableChip.onEndDrag -= DraggableChipOnEndDrag;
-		PlayButton.onClick -= OnClickPlay;
+		GameButton.onClickPlay -= OnClickPlay;
 	}
 
 	protected void Awake ()
