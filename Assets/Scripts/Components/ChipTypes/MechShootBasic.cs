@@ -26,7 +26,7 @@ public class MechShootBasic : ChipBase
 
 	protected void Awake ()
 	{
-		m_tBulletSpawnPoint = ChipManager.instance.mechHatch.GetComponent<MechHatchManager>().bulletSpawnPoint;
+		m_tBulletSpawnPoint = this.GetComponent<ChipManager>().mechHatch.GetComponent<MechHatchManager>().bulletSpawnPoint;
 	}
 
 	private void ShootTarget (GameObject p_objTarget)

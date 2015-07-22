@@ -6,14 +6,17 @@ public class MechManager : MonoBehaviour
 	private static MechManager m_instance = null;
 	public  static MechManager instance {get{return m_instance;}}
 
+	private const string MECHBASIC_PREFAB = "Prefabs/MechBasic";
+	private Dictionary<int, ChipManager> m_listMechUnits = new Dictionary<int, ChipManager>();
+
 	protected void OnEnable ()
 	{
-		GameButton.onClickBack += OnClickBack;
+		GameButton.onClickBack += GameReset;
 	}
-
+	
 	protected void OnDisable ()
 	{
-		GameButton.onClickBack -= OnClickBack;
+		GameButton.onClickBack -= GameReset;
 	}
 
 	protected void Awake ()
@@ -21,22 +24,23 @@ public class MechManager : MonoBehaviour
 		if(m_instance == null){m_instance = this;}
 	}
 
-	private void OnClickBack ()
+	private void GameReset ()
 	{
-		ChipManager chipManager = ChipManager.instance;
-		Transform chipMngrTransform = chipManager.transform;
-
-		chipMngrTransform.position = new Vector3(0,1,0);
-		chipMngrTransform.localScale = Vector3.one;
-		chipMngrTransform.rotation = Quaternion.identity;
-		chipManager.UninstallAllChips();
+		m_listMechUnits.Clear();
 	}
 
 	public void MechSetup (Dictionary<int, ChipData> p_dictChipData)
 	{
+		ChipManager mechUnit = (Instantiate(Resources.Load(MECHBASIC_PREFAB)) as GameObject).GetComponent<ChipManager>();
+		mechUnit.transform.SetParent(GameScreenManager.instance.transform);
+		mechUnit.Reset();
+
+		int mechID = m_listMechUnits.Count;
+		m_listMechUnits.Add(mechID,mechUnit);
+
 		foreach(KeyValuePair<int, ChipData> chipdata in p_dictChipData)
 		{
-			ChipManager.instance.InstallChip(chipdata.Value.type);
+			mechUnit.InstallChip(chipdata.Value.type);
 		}
 	}
 }

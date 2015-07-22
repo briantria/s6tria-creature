@@ -14,7 +14,7 @@ public class MechScanBasic : ChipBase, IRotateHandler
 	protected void Awake ()
 	{
 		angularSpeed = 3.0f;
-		m_objMechHatch = ChipManager.instance.mechHatch;
+		m_objMechHatch = this.GetComponent<ChipManager>().mechHatch;
 	}
 
 	public override void ExecuteCommand ()

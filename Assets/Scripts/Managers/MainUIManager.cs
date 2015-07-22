@@ -37,8 +37,6 @@ public class MainUIManager : MonoBehaviour
 		{
 			obj.SetActive(true);
 		}
-
-		GameScreenManager.instance.gameObject.SetActive(true);
 	}
 
 	private void OnClickBack ()

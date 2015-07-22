@@ -5,8 +5,6 @@ using System.Collections.Generic;
 public class MechSetupManager : MonoBehaviour, IDropHandler
 {
 	[SerializeField] private Transform m_tinstalledChipsContainer;
-	[SerializeField] private GameObject m_objMech;
-	[SerializeField] private GameObject m_objArena;
 
 	private static MechSetupManager m_instance = null;
 	private int m_iCurrentChipInstalled;
@@ -36,8 +34,7 @@ public class MechSetupManager : MonoBehaviour, IDropHandler
 
 	private void OnClickPlay ()
 	{
-		m_objArena.SetActive(true);
-		m_objMech.SetActive(true);
+		GameScreenManager.instance.gameObject.SetActive(true);
 		MechManager.instance.MechSetup(m_dictChipData);
 	}
 

@@ -12,10 +12,8 @@ using System.Collections.Generic;
 
 public class ChipManager : MonoBehaviour 
 {
-	private static ChipManager m_instance = null;
-	public  static ChipManager instance {get{return m_instance;}}
-
 	public GameObject mechHatch { get{ return m_objHatch; }}
+	public int mechID { set; get; }
 
 	[SerializeField] private GameObject m_objBody;
 	[SerializeField] private GameObject m_objHatch;
@@ -27,21 +25,31 @@ public class ChipManager : MonoBehaviour
 	protected void OnEnable ()
 	{
 		GameButton.onClickPlay += GameStart;
+		GameButton.onClickBack += GameReset;
 	}
 
 	protected void OnDisable ()
 	{
 		GameButton.onClickPlay -= GameStart;
-	}
-
-	protected void Awake ()
-	{
-		if(m_instance == null){m_instance = this;}
+		GameButton.onClickBack -= GameReset;
 	}
 
 	private void GameStart ()
 	{
 		this.gameObject.GetComponents<ChipBase>(m_listChipComponents);
+	}
+
+	private void GameReset ()
+	{
+		Destroy(this.gameObject);
+	}
+
+	public void Reset ()
+	{
+		Transform chipMngrTransform = this.transform;
+		chipMngrTransform.position = new Vector3(0,1,0);
+		chipMngrTransform.localScale = Vector3.one;
+		chipMngrTransform.rotation = Quaternion.identity;
 	}
 
 	public void InstallChip (string p_chipTypeName)
