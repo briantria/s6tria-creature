@@ -60,7 +60,10 @@ GameObject:
   - 4: {fileID: 421250}
   - 54: {fileID: 5490272}
   - 65: {fileID: 6568022}
+  - 114: {fileID: 11453858}
   - 114: {fileID: 11431572}
+  - 114: {fileID: 11453324}
+  - 114: {fileID: 11463074}
   m_Layer: 0
   m_Name: MechBasic
   m_TagString: Mech
@@ -372,6 +375,42 @@ MonoBehaviour:
   m_objBody: {fileID: 152918}
   m_objHatch: {fileID: 102324}
   m_objCabin: {fileID: 195962}
+--- !u!114 &11453324
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 188c66baca638468ab41e5c6d5e649f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_objHealthbar: {fileID: 100824}
+  m_fFullHealth: 20
+--- !u!114 &11453858
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f45c30ae0d954449dbdd6e09efb33225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_objCabin: {fileID: 195962}
+--- !u!114 &11463074
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e39461cdf27ee4924acb0f87657e357f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11487556
 MonoBehaviour:
   m_ObjectHideFlags: 1

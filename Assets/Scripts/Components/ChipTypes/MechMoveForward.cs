@@ -27,9 +27,7 @@ public class MechMoveForward : ChipBase, IMoveHandler
 	
 	public void MoveObject (Vector3 p_v3Direction)
 	{
-		if(movableRigidBody)
-		{
-			movableRigidBody.AddRelativeForce(p_v3Direction * m_fLinearSpeed, ForceMode.Acceleration);
-		}
+		if(movableRigidBody == null) { return; }
+		movableRigidBody.AddRelativeForce(p_v3Direction * m_fLinearSpeed, ForceMode.Acceleration);
 	}
 }

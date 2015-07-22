@@ -70,4 +70,16 @@ public class ChipManager : MonoBehaviour
 
 		listChipComponents = null;
 	}
+
+	public void ActivateAllChips (bool p_bActivate)
+	{
+		ChipBase[] listChipComponents = this.gameObject.GetComponents<ChipBase>() as ChipBase[];
+		
+		for(int idx = listChipComponents.Length-1; idx >= 0; --idx)
+		{
+			listChipComponents[idx].isActive = p_bActivate;
+		}
+		
+		listChipComponents = null;
+	}
 }

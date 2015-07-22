@@ -33,6 +33,12 @@ public class Bullet : MonoBehaviour, IMoveHandler
 				v3Direction.y = m_fExplosionUpwardMod;
 				hitMech.AddForce(v3Direction.normalized * m_fExplosionPower, ForceMode.Impulse);
 			}
+
+			MechManager mechMngr = p_collider.GetComponent<MechManager>();
+			if(mechMngr != null)
+			{
+				mechMngr.DealDamage(10);
+			}
 		}
 
 		Reset();

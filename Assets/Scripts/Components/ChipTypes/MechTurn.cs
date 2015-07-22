@@ -19,6 +19,7 @@ public class MechTurn : ChipBase, IRotateHandler
 
 	public void RotateObject (Vector3 p_v3Rotation)
 	{
+		if(m_objMechCabin == null) { return; }
 		m_objMechCabin.transform.Rotate(p_v3Rotation * m_fAngularSpeed);
 	}
 }

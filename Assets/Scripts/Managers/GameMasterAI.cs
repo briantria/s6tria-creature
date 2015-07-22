@@ -1,4 +1,12 @@
-﻿using UnityEngine;
+﻿/*
+ * Brian
+ * July 22, 2015
+ * 
+ * handles overall events in a game. mostly about updates from all players.
+ * 
+ */
+
+using UnityEngine;
 using System.Collections.Generic;
 
 public class GameMasterAI : MonoBehaviour 
