@@ -4,9 +4,9 @@ using System.Collections;
 public class Bullet : MonoBehaviour, IMoveHandler
 {
 	[SerializeField] private float m_fSpeed = 15.0f;
-	[SerializeField] private float m_fExplosionRadius = 3.0f;
+	[SerializeField] private float m_fExplosionRadius = 5.0f;
 	[SerializeField] private float m_fExplosionPower = 4.0f;
-	[SerializeField] private float m_fExplosionUpwardMod = 0.5f;
+	[SerializeField] private float m_fExplosionUpwardMod = 1.5f;
 
 	public bool isAvailable { set; get; }
 

@@ -3,11 +3,11 @@ using System.Collections;
 
 public class MechTurn : ChipBase, IRotateHandler
 {
-	public float angularSpeed { set; get; }
+	[SerializeField] public float m_fAngularSpeed;
 
 	protected void Awake ()
 	{
-		angularSpeed = 1.0f;
+		m_fAngularSpeed = 3.0f;
 	}
 
 	public override void ExecuteCommand ()
@@ -17,6 +17,6 @@ public class MechTurn : ChipBase, IRotateHandler
 
 	public void RotateObject (Vector3 p_v3Rotation)
 	{
-		this.transform.Rotate(p_v3Rotation * angularSpeed);
+		this.transform.Rotate(p_v3Rotation * m_fAngularSpeed);
 	}
 }

@@ -4,14 +4,14 @@ using System.Collections;
 public class MechScanBasic : ChipBase, IRotateHandler
 {
 	[SerializeField] private float m_fRange = 25.0f; // serialized for easier testing
+	[SerializeField] private float m_fAngularSpeed;
+
 	private GameObject m_objMechHatch;
 	private MechShootBasic m_shootBasic;
 
-	public float angularSpeed { set; get; }
-	
 	protected void Awake ()
 	{
-		angularSpeed = 3.0f;
+		m_fAngularSpeed = 6.0f;
 		m_objMechHatch = this.GetComponent<ChipManager>().mechHatch;
 		m_shootBasic = this.GetComponent<MechShootBasic>(); // TODO: should handle multiple cannon/shooters
 	}
@@ -44,6 +44,6 @@ public class MechScanBasic : ChipBase, IRotateHandler
 
 	public void RotateObject (Vector3 p_v3Rotation)
 	{
-		m_objMechHatch.transform.Rotate(p_v3Rotation * angularSpeed);
+		m_objMechHatch.transform.Rotate(p_v3Rotation * m_fAngularSpeed);
 	}
 }

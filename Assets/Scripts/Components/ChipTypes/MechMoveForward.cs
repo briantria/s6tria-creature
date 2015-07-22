@@ -9,12 +9,12 @@ using System;
 
 public class MechMoveForward : ChipBase, IMoveHandler
 {
-	public float linearSpeed { get; set; }
+	[SerializeField] private float m_fLinearSpeed;
 	public Rigidbody movableRigidBody { get; set; }
 
 	protected void Awake ()
 	{
-		linearSpeed = 3.0f;
+		m_fLinearSpeed = 20.0f;
 		movableRigidBody = this.gameObject.GetComponent<Rigidbody>();
 	}
 
@@ -27,7 +27,7 @@ public class MechMoveForward : ChipBase, IMoveHandler
 	{
 		if(movableRigidBody)
 		{
-			movableRigidBody.AddRelativeForce(p_v3Direction * linearSpeed, ForceMode.Acceleration);
+			movableRigidBody.AddRelativeForce(p_v3Direction * m_fLinearSpeed, ForceMode.Acceleration);
 		}
 	}
 }
