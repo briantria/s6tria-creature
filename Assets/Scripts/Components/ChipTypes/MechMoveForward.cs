@@ -11,16 +11,18 @@ public class MechMoveForward : ChipBase, IMoveHandler
 {
 	[SerializeField] private float m_fLinearSpeed;
 	public Rigidbody movableRigidBody { get; set; }
+	private GameObject m_objMechCabin;
 
 	protected void Awake ()
 	{
 		m_fLinearSpeed = 20.0f;
-		movableRigidBody = this.gameObject.GetComponent<Rigidbody>();
+		movableRigidBody = this.GetComponent<Rigidbody>();
+		m_objMechCabin = this.GetComponent<ChipManager>().mechCabin;
 	}
 
 	public override void ExecuteCommand ()
 	{
-		MoveObject(Vector3.forward * (-1));
+		MoveObject(m_objMechCabin.transform.TransformDirection(Vector3.forward * (-1)));
 	}
 	
 	public void MoveObject (Vector3 p_v3Direction)

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 
@@ -35,7 +35,7 @@ public class MechSetupManager : MonoBehaviour, IDropHandler
 	private void OnClickPlay ()
 	{
 		GameScreenManager.instance.gameObject.SetActive(true);
-		MechManager.instance.MechSetup(m_dictChipData);
+		GameMasterAI.instance.MechSetup(m_dictChipData);
 	}
 
 	private void DraggableChipOnEndDrag (DraggableChip p_selectedChip)

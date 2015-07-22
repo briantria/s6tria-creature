@@ -4,9 +4,8 @@ using System.Collections;
 public class Bullet : MonoBehaviour, IMoveHandler
 {
 	[SerializeField] private float m_fSpeed = 15.0f;
-	[SerializeField] private float m_fExplosionRadius = 5.0f;
-	[SerializeField] private float m_fExplosionPower = 4.0f;
-	[SerializeField] private float m_fExplosionUpwardMod = 1.5f;
+	[SerializeField] private float m_fExplosionPower = 2.0f;
+	[SerializeField] private float m_fExplosionUpwardMod = 0.5f;
 
 	public bool isAvailable { set; get; }
 
@@ -30,7 +29,9 @@ public class Bullet : MonoBehaviour, IMoveHandler
 			Rigidbody hitMech = p_collider.GetComponent<Rigidbody>();
 			if(hitMech != null)
 			{
-				hitMech.AddExplosionForce(m_fExplosionPower, this.transform.position, m_fExplosionRadius, m_fExplosionUpwardMod, ForceMode.Impulse);
+				Vector3 v3Direction = hitMech.transform.position - this.transform.position;
+				v3Direction.y = m_fExplosionUpwardMod;
+				hitMech.AddForce(v3Direction.normalized * m_fExplosionPower, ForceMode.Impulse);
 			}
 		}
 

@@ -4,10 +4,12 @@ using System.Collections;
 public class MechTurn : ChipBase, IRotateHandler
 {
 	[SerializeField] public float m_fAngularSpeed;
+	private GameObject m_objMechCabin;
 
 	protected void Awake ()
 	{
 		m_fAngularSpeed = 3.0f;
+		m_objMechCabin = this.GetComponent<ChipManager>().mechCabin;
 	}
 
 	public override void ExecuteCommand ()
@@ -17,6 +19,6 @@ public class MechTurn : ChipBase, IRotateHandler
 
 	public void RotateObject (Vector3 p_v3Rotation)
 	{
-		this.transform.Rotate(p_v3Rotation * m_fAngularSpeed);
+		m_objMechCabin.transform.Rotate(p_v3Rotation * m_fAngularSpeed);
 	}
 }

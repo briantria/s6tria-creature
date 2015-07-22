@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class MechManager : MonoBehaviour 
+public class GameMasterAI : MonoBehaviour 
 {
-	private static MechManager m_instance = null;
-	public  static MechManager instance {get{return m_instance;}}
+	private static GameMasterAI m_instance = null;
+	public  static GameMasterAI instance {get{return m_instance;}}
 
 	private const string MECHBASIC_PREFAB = "Prefabs/MechBasic";
 	private Dictionary<int, ChipManager> m_listMechUnits = new Dictionary<int, ChipManager>();

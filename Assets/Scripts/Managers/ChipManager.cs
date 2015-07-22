@@ -13,10 +13,12 @@ using System.Collections.Generic;
 public class ChipManager : MonoBehaviour 
 {
 	public GameObject mechHatch { get{ return m_objHatch; }}
+	public GameObject mechCabin { get{ return m_objCabin; }}
 	public int mechID { set; get; }
 
 	[SerializeField] private GameObject m_objBody;
 	[SerializeField] private GameObject m_objHatch;
+	[SerializeField] private GameObject m_objCabin;
 
 	private GameObject m_objMech;
 	private MechMoveForward m_moveComponent;
