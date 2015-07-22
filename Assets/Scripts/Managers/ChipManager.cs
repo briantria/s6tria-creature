@@ -46,14 +46,6 @@ public class ChipManager : MonoBehaviour
 		Destroy(this.gameObject);
 	}
 
-	public void Reset ()
-	{
-		Transform chipMngrTransform = this.transform;
-		chipMngrTransform.position = new Vector3(0,1,0);
-		chipMngrTransform.localScale = Vector3.one;
-		chipMngrTransform.rotation = Quaternion.identity;
-	}
-
 	public void InstallChip (string p_chipTypeName)
 	{
 		this.gameObject.AddComponent(Type.GetType(p_chipTypeName));

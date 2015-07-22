@@ -69,4 +69,26 @@ public class ChipInventoryManager : MonoBehaviour
 			chipDataDisplay.chipData = chipData;
 		}
 	}
+
+	public List<ChipData> GetRandomChipData (int p_iCount = 1)
+	{
+		List<ChipData> listChipData = new List<ChipData>();
+		List<ChipData> listChosenChips = new List<ChipData>();
+
+		listChipData.AddRange(m_listChipData);
+
+		for(int iTry = 0; iTry < p_iCount; ++iTry)
+		{
+			int index = Random.Range(0, listChipData.Count);
+			listChosenChips.Add(listChipData[index]);
+			listChipData.RemoveAt(index);
+
+			if(listChipData.Count == 0)
+			{
+				break;
+			}
+		}
+
+		return listChosenChips;
+	}
 }

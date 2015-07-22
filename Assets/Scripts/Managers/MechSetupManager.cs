@@ -35,7 +35,7 @@ public class MechSetupManager : MonoBehaviour, IDropHandler
 	private void OnClickPlay ()
 	{
 		GameScreenManager.instance.gameObject.SetActive(true);
-		GameMasterAI.instance.MechSetup(m_dictChipData);
+		GameMasterAI.instance.GameSetup(m_dictChipData);
 	}
 
 	private void DraggableChipOnEndDrag (DraggableChip p_selectedChip)

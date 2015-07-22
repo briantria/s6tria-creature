@@ -7,6 +7,8 @@
  */
 
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class MechManager : MonoBehaviour 
 {
@@ -17,6 +19,12 @@ public class MechManager : MonoBehaviour
 	private DeathManager m_deathManager;
 	private Rigidbody m_rigidBody;
 	private BoxCollider m_boxCollider;
+
+//	public float radius = 3;
+//	void OnDrawGizmos ()
+//	{
+//		Gizmos.DrawSphere(transform.position, radius);
+//	}
 
 	protected void Awake ()
 	{
@@ -43,6 +51,24 @@ public class MechManager : MonoBehaviour
 			m_rigidBody.isKinematic = true;
 			m_rigidBody.detectCollisions = false;
 		}
+	}
+
+	public void Reset ()
+	{
+		Transform mechMngrTransform = this.transform;
+		mechMngrTransform.position = new Vector3(0,1,0);
+		mechMngrTransform.localScale = Vector3.one;
+		m_objCabin.transform.rotation = Quaternion.identity;
+	}
+
+	public bool Spawn ()
+	{
+		Transform randomSpawnPoint = ArenaManager.instance.GetRandomSpawnPoint();
+		if(randomSpawnPoint == null) { return false; }
+		this.transform.position = randomSpawnPoint.position;
+		m_objCabin.transform.Rotate(0.0f, Random.Range(0.0f,360.0f), 0.0f);
+
+		return true;
 	}
 
 	public void DealDamage (float p_fDamage)
