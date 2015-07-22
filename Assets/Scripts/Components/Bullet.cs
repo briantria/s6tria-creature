@@ -21,11 +21,12 @@ public class Bullet : MonoBehaviour, IMoveHandler
 
 	protected  void OnTriggerEnter (Collider p_collider) 
 	{
-		//if(p_collider.CompareTag("Mech"))
+		if(p_collider.CompareTag("Mech"))
 		{
 			// explosion!
-			Reset();
 		}
+
+		Reset();
 	}
 
 	public void Reset ()

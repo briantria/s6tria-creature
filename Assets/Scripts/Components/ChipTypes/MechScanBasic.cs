@@ -3,11 +3,9 @@ using System.Collections;
 
 public class MechScanBasic : ChipBase, IRotateHandler
 {
-	public delegate void MechScannerEventTrigger (GameObject p_objDetected);
-	public static event MechScannerEventTrigger onDetectTarget;
-
 	[SerializeField] private float m_fRange = 25.0f; // serialized for easier testing
 	private GameObject m_objMechHatch;
+	private MechShootBasic m_shootBasic;
 
 	public float angularSpeed { set; get; }
 	
@@ -15,6 +13,7 @@ public class MechScanBasic : ChipBase, IRotateHandler
 	{
 		angularSpeed = 3.0f;
 		m_objMechHatch = this.GetComponent<ChipManager>().mechHatch;
+		m_shootBasic = this.GetComponent<MechShootBasic>(); // TODO: should handle multiple cannon/shooters
 	}
 
 	public override void ExecuteCommand ()
@@ -31,17 +30,13 @@ public class MechScanBasic : ChipBase, IRotateHandler
 		{
 			if(hit.collider != null && hit.collider.CompareTag("Mech"))
 			{
-				//Debug.Log("HIT!");
-				if(onDetectTarget != null)
+				if(m_shootBasic != null)
 				{
-					onDetectTarget(hit.collider.gameObject);
+					m_shootBasic.ShootTarget();
 				}
-			}
-			else
-			{
-				if(onDetectTarget != null)
+				else
 				{
-					onDetectTarget(null);
+					m_shootBasic = this.GetComponent<MechShootBasic>();
 				}
 			}
 		}
