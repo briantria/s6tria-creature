@@ -13,6 +13,16 @@ public class Bullet : MonoBehaviour, IMoveHandler
 	private MeshRenderer m_meshRenderer;
 	private SphereCollider m_sphereCollider;
 
+	protected void OnEnable ()
+	{
+		GameMasterAI.onGameResults += OnGameResults;
+	}
+	
+	protected void OnDisable ()
+	{
+		GameMasterAI.onGameResults -= OnGameResults;
+	}
+
 	protected void Awake ()
 	{
 		isAvailable = false;
@@ -41,6 +51,11 @@ public class Bullet : MonoBehaviour, IMoveHandler
 			}
 		}
 
+		Reset();
+	}
+
+	private void OnGameResults ()
+	{
 		Reset();
 	}
 

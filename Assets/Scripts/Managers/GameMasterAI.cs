@@ -18,6 +18,9 @@ public class GameMasterAI : MonoBehaviour
 	private const string MECHBASIC_PREFAB = "Prefabs/MechBasic";
 	private List<GameObject> m_listMechUnits = new List<GameObject>();
 
+	public delegate void GameMasterAIEventTriggers();
+	public static event GameMasterAIEventTriggers onGameResults;
+
 	protected void OnEnable ()
 	{
 		GameButton.onClickBack += GameReset;
@@ -61,6 +64,12 @@ public class GameMasterAI : MonoBehaviour
 
 	public void GameResult (EnumGameResults p_enumGameResult)
 	{
+		if(onGameResults != null)
+		{
+			onGameResults();
+		}
+
+		TimerManager.instance.StopTimer();
 		GameResultManager.instance.DisplayResults(p_enumGameResult);
 	}
 
