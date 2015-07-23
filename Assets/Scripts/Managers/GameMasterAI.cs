@@ -62,15 +62,17 @@ public class GameMasterAI : MonoBehaviour
 		TimerManager.instance.StartTimer ();
 	}
 
-	public void GameResult (EnumGameResults p_enumGameResult)
+	public void GameResult (bool p_bWon)
 	{
+		if(GameResultManager.instance.gameObject.activeInHierarchy) { return; }
+
 		if(onGameResults != null)
 		{
 			onGameResults();
 		}
 
 		TimerManager.instance.StopTimer();
-		GameResultManager.instance.DisplayResults(p_enumGameResult);
+		GameResultManager.instance.DisplayResults(p_bWon);
 	}
 
 	public void MechSetup (Dictionary<int, ChipData> p_dictChipData)
@@ -88,7 +90,7 @@ public class GameMasterAI : MonoBehaviour
 			return;
 		}
 		
-		int mechID = m_listMechUnits.Count;
+		int mechID = mechMngr.ID = m_listMechUnits.Count;
 		if(mechID <= 0)
 		{
 			mechMngr.isMine = true;
@@ -100,5 +102,14 @@ public class GameMasterAI : MonoBehaviour
 		}
 
 		m_listMechUnits.Add(objMech);
+	}
+
+	public void RemoveMech (GameObject p_objMech)
+	{
+		m_listMechUnits.Remove(p_objMech);
+		if(m_listMechUnits.Count == 1)
+		{
+			GameResult(m_listMechUnits[0].GetComponent<MechManager>().isMine);
+		}
 	}
 }

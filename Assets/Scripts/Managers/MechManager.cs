@@ -22,6 +22,8 @@ public class MechManager : MonoBehaviour
 	private BoxCollider m_boxCollider;
 	private bool m_bIsMine;
 
+	public int ID { set; get; }
+
 	public bool isMine
 	{
 		get { return m_bIsMine; }
@@ -90,7 +92,8 @@ public class MechManager : MonoBehaviour
 		if(fCurrentHealth <= 0 && m_deathManager != null)
 		{
 			MechDeath();
-			if(isMine) { GameMasterAI.instance.GameResult(EnumGameResults.Lose); }
+			GameMasterAI.instance.RemoveMech(this.gameObject);
+			if(isMine) { GameMasterAI.instance.GameResult(false); }
 		}
 	}
 }

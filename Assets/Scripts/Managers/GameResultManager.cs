@@ -15,20 +15,9 @@ public class GameResultManager : MonoBehaviour
 		this.gameObject.SetActive (false);
 	}
 
-	public void DisplayResults (EnumGameResults p_enumResult)
+	public void DisplayResults (bool p_bWon)
 	{
 		this.gameObject.SetActive (true);
-
-		switch(p_enumResult){
-		case EnumGameResults.Win:
-		{
-			m_textResult.text = "YOU WIN!";
-			break;
-		}
-		case EnumGameResults.Lose:
-		{
-			m_textResult.text = "YOU LOSE!";
-			break;
-		}}
+		m_textResult.text = p_bWon ? "YOU WIN!" : "YOU LOSE!";
 	}
 }

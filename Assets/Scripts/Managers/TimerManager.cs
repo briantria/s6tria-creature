@@ -16,7 +16,7 @@ public class TimerManager : MonoBehaviour
 
 	private IEnumerator IEStartTimer ()
 	{
-		float fTimeValue = 5.0f;
+		float fTimeValue = 20.0f;
 
 		while (true) 
 		{
@@ -27,7 +27,7 @@ public class TimerManager : MonoBehaviour
 
 			if(fTimeValue < 0)
 			{
-				GameMasterAI.instance.GameResult(EnumGameResults.Win);
+				GameMasterAI.instance.GameResult(true);
 				break;
 			}
 		}
