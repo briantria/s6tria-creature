@@ -13,21 +13,29 @@ using System.Collections.Generic;
 public class MechManager : MonoBehaviour 
 {
 	[SerializeField] private GameObject m_objCabin;
+	[SerializeField] private GameObject m_objHighlight;
 
 	private ChipManager m_chipManager;
 	private HealthManager m_healthManager;
 	private DeathManager m_deathManager;
 	private Rigidbody m_rigidBody;
 	private BoxCollider m_boxCollider;
+	private bool m_bIsMine;
 
-//	public float radius = 3;
-//	void OnDrawGizmos ()
-//	{
-//		Gizmos.DrawSphere(transform.position, radius);
-//	}
+	public bool isMine
+	{
+		get { return m_bIsMine; }
+
+		set
+		{
+			m_bIsMine = value;
+			m_objHighlight.SetActive(m_bIsMine);
+		}
+	}
 
 	protected void Awake ()
 	{
+		isMine = false;
 		m_chipManager = this.GetComponent<ChipManager>();
 		m_healthManager = this.GetComponent<HealthManager>() as HealthManager;
 		m_deathManager = this.GetComponent<DeathManager>() as DeathManager;
@@ -44,8 +52,10 @@ public class MechManager : MonoBehaviour
 	{
 		if(m_chipManager != null) { m_chipManager.ActivateAllChips(false); }
 		if(m_objCabin != null) { m_objCabin.SetActive(false); }
+		if(m_objHighlight != null) { m_objHighlight.SetActive(false); }
 		if(m_deathManager != null) { m_deathManager.StartExplode(); }
 		if(m_boxCollider != null) { m_boxCollider.enabled = false; }
+
 		if(m_rigidBody != null)
 		{
 			m_rigidBody.isKinematic = true;
@@ -80,6 +90,7 @@ public class MechManager : MonoBehaviour
 		if(fCurrentHealth <= 0 && m_deathManager != null)
 		{
 			MechDeath();
+			if(isMine) { GameMasterAI.instance.GameResult(EnumGameResults.Lose); }
 		}
 	}
 }

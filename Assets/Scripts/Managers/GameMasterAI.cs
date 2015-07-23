@@ -16,7 +16,7 @@ public class GameMasterAI : MonoBehaviour
 	public int aiCount { set; get; }
 
 	private const string MECHBASIC_PREFAB = "Prefabs/MechBasic";
-	private Dictionary<int, ChipManager> m_listMechUnits = new Dictionary<int, ChipManager>();
+	private List<GameObject> m_listMechUnits = new List<GameObject>();
 
 	protected void OnEnable ()
 	{
@@ -57,9 +57,15 @@ public class GameMasterAI : MonoBehaviour
 		}
 	}
 
+	public void GameResult (EnumGameResults p_enumGameResult)
+	{
+		Debug.Log("VICTORY: " + p_enumGameResult);
+	}
+
 	public void MechSetup (Dictionary<int, ChipData> p_dictChipData)
 	{
 		GameObject objMech = Instantiate(Resources.Load(MECHBASIC_PREFAB)) as GameObject;
+		ChipManager chipMngr = objMech.GetComponent<ChipManager>();
 		MechManager mechMngr = objMech.GetComponent<MechManager>();
 		mechMngr.transform.SetParent(GameScreenManager.instance.transform);
 		mechMngr.Reset();
@@ -70,14 +76,18 @@ public class GameMasterAI : MonoBehaviour
 			Destroy(objMech);
 			return;
 		}
-
-		ChipManager chipMngr = objMech.GetComponent<ChipManager>();
+		
 		int mechID = m_listMechUnits.Count;
-		m_listMechUnits.Add(mechID,chipMngr);
+		if(mechID <= 0)
+		{
+			mechMngr.isMine = true;
+		}
 
 		foreach(KeyValuePair<int, ChipData> chipdata in p_dictChipData)
 		{
 			chipMngr.InstallChip(chipdata.Value.type);
 		}
+
+		m_listMechUnits.Add(objMech);
 	}
 }
