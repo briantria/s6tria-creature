@@ -55,11 +55,13 @@ public class GameMasterAI : MonoBehaviour
 			MechSetup(aiChipData);
 			aiChipData.Clear();
 		}
+
+		TimerManager.instance.StartTimer ();
 	}
 
 	public void GameResult (EnumGameResults p_enumGameResult)
 	{
-		Debug.Log("VICTORY: " + p_enumGameResult);
+		GameResultManager.instance.DisplayResults(p_enumGameResult);
 	}
 
 	public void MechSetup (Dictionary<int, ChipData> p_dictChipData)

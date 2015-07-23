@@ -51,6 +51,7 @@ public class MainUIManager : MonoBehaviour
 			obj.SetActive(false);
 		}
 
+		GameResultManager.instance.gameObject.SetActive(false);
 		GameScreenManager.instance.gameObject.SetActive(false);
 	}
 }
