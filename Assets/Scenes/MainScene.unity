@@ -105,7 +105,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &2881578
 AudioListener:
   m_ObjectHideFlags: 0
@@ -623,7 +623,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: abcc9d3f5621f894f97b852040fe348e, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1495,9 +1495,33 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 143306, guid: 7bf83ab2fe8614dd68e3a0079f791ffe, type: 2}
-      propertyPath: m_IsActive
+    - target: {fileID: 486010, guid: 7bf83ab2fe8614dd68e3a0079f791ffe, type: 2}
+      propertyPath: m_LocalScale.z
+      value: .300000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 486010, guid: 7bf83ab2fe8614dd68e3a0079f791ffe, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 486010, guid: 7bf83ab2fe8614dd68e3a0079f791ffe, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 486010, guid: 7bf83ab2fe8614dd68e3a0079f791ffe, type: 2}
+      propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447182, guid: 7bf83ab2fe8614dd68e3a0079f791ffe, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -.559482694
+      objectReference: {fileID: 0}
+    - target: {fileID: 447182, guid: 7bf83ab2fe8614dd68e3a0079f791ffe, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: -.828842044
+      objectReference: {fileID: 0}
+    - target: {fileID: 169426, guid: 7bf83ab2fe8614dd68e3a0079f791ffe, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7bf83ab2fe8614dd68e3a0079f791ffe, type: 2}
@@ -3044,7 +3068,7 @@ Light:
   serializedVersion: 6
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.86000001
+  m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -3062,7 +3086,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967263
   m_Lightmapping: 4
-  m_BounceIntensity: .819999993
+  m_BounceIntensity: .5
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
