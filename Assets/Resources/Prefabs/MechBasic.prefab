@@ -130,7 +130,7 @@ GameObject:
   - 33: {fileID: 3362706}
   - 23: {fileID: 2380252}
   m_Layer: 0
-  m_Name: Canon
+  m_Name: Cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -453,6 +453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_bulletSpawnPoint: {fileID: 439286}
+  m_cannon: {fileID: 197270}
 --- !u!212 &21224126
 SpriteRenderer:
   m_ObjectHideFlags: 1

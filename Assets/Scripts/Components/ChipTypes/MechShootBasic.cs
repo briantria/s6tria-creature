@@ -6,6 +6,8 @@ public class MechShootBasic : ChipBase
 	private Bullet m_basicBullet;
 	private Transform m_tBulletSpawnPoint;
 
+	private GameObject m_objMechCannon;
+
 	protected void OnEnable ()
 	{
 		m_basicBullet = (Instantiate(Resources.Load(BULLET_PREFAB)) as GameObject).GetComponent<Bullet>();
@@ -22,7 +24,9 @@ public class MechShootBasic : ChipBase
 
 	protected void Awake ()
 	{
-		m_tBulletSpawnPoint = this.GetComponent<ChipManager>().mechHatch.GetComponent<MechHatchManager>().bulletSpawnPoint;
+		MechHatchManager mechHatchManager = this.GetComponent<ChipManager> ().mechHatch.GetComponent<MechHatchManager> ();
+		m_tBulletSpawnPoint = mechHatchManager.bulletSpawnPoint;
+		m_objMechCannon = mechHatchManager.cannon;
 	}
 
 	public void ShootTarget ()
