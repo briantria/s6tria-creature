@@ -416,7 +416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8bbeff290a16f4abe904a4f67a4c0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fRecoilStrength: .800000012
+  m_fRecoilStrength: 1
   m_fRecoverSpeed: .0399999991
 --- !u!114 &11453324
 MonoBehaviour:
