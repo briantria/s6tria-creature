@@ -6,7 +6,7 @@ public class MechShootBasic : ChipBase
 	private Bullet m_basicBullet;
 	private Transform m_tBulletSpawnPoint;
 
-	private GameObject m_objMechCannon;
+	private MechCannonManager m_mechCannonManager;
 
 	protected void OnEnable ()
 	{
@@ -26,7 +26,7 @@ public class MechShootBasic : ChipBase
 	{
 		MechHatchManager mechHatchManager = this.GetComponent<ChipManager> ().mechHatch.GetComponent<MechHatchManager> ();
 		m_tBulletSpawnPoint = mechHatchManager.bulletSpawnPoint;
-		m_objMechCannon = mechHatchManager.cannon;
+		m_mechCannonManager = mechHatchManager.cannon.GetComponent<MechCannonManager>();
 	}
 
 	public void ShootTarget ()
@@ -37,6 +37,7 @@ public class MechShootBasic : ChipBase
 			Vector3 v3Direction = m_tBulletSpawnPoint.TransformDirection(Vector3.forward * (-1));
 			//Debug.Log("DIRECTION: " + v3Direction);
 			m_basicBullet.SetupAndFire(m_tBulletSpawnPoint, v3Direction);
+			m_mechCannonManager.AnimateRecoil();
 		}
 	}
 }
