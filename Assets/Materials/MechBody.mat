@@ -38,6 +38,13 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
+          name: _DecalTex
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
           name: _ParallaxMap
         second:
           m_Texture: {fileID: 0}
@@ -102,7 +109,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: .486999989
+        second: .226999998
       data:
         first:
           name: _BumpScale
@@ -126,7 +133,7 @@ Material:
       data:
         first:
           name: _Metallic
-        second: .95599997
+        second: .108999997
     m_Colors:
       data:
         first:
